@@ -5,9 +5,7 @@ declare var $jit: any;
 @Injectable()
 export class MindMapService {
 
-    constructor() {
-        console.log("", $jit);
-    }
+    constructor() { }
 
     public create(): void {
         //end
@@ -16,7 +14,7 @@ export class MindMapService {
         var st = new $jit.ST({
 
             //id of viz container element
-            injectInto: 'mind-map',
+            injectInto: 'infovis',
             //set duration for the animation
             duration: 500,
             //set animation transition type
@@ -71,9 +69,9 @@ export class MindMapService {
                 label.onclick = function () {
                     console.log("clicked", node);
                     //if (normal.checked) {
-                    //    st.onClick(node.id);
+                    st.onClick(node.id);
                     //} else {
-                    st.setRoot(node.id, 'animate');
+                    //st.setRoot(node.id, 'animate');
                     //}
                 };
                 //set label styles
@@ -82,7 +80,7 @@ export class MindMapService {
                 style.height = 17 + 'px';
                 style.cursor = 'pointer';
                 style.color = '#333';
-                style.fontSize = '0.8em';
+                style.fontSize = '0.5em';
                 style.textAlign = 'center';
                 style.paddingTop = '3px';
             },
@@ -130,7 +128,12 @@ export class MindMapService {
         });
 
         //load json data (attached to window in a separate js file)
-        st.loadJSON({});
+        st.loadJSON({
+            id: "node02",
+            name: "0.2",
+            data: { some: "data" },
+            children: [{}]
+        });
         //compute node positions and layout
         st.compute();
         //optional: make a translation of the tree

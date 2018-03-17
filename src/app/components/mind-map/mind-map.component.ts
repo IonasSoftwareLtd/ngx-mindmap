@@ -3,7 +3,15 @@ import { MindMapService } from '../../services/mind-map/mind-map.service';
 
 @Component({
     selector: 'mind-map',
-    template: `<div class="center-container"><div id="mind-map"></div></div>`
+    template: `
+    <div class="mind-map">
+        <div id="container">
+            <div id="center-container">
+                <div id="infovis">
+                </div>
+            </div>
+        </div>
+    <div>`
     , styleUrls: [ 'mind-map.component.css' ]
 })
 export class MindMapComponent implements OnInit {
