@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 declare var $jit: any;
+declare var nodeData: any;
 
 @Injectable()
 export class MindMapService {
 
-    constructor() { }
+    constructor() {}
 
     public create(): void {
         //end
@@ -132,7 +134,7 @@ export class MindMapService {
             id: "node02",
             name: "0.2",
             data: { some: "data" },
-            children: [{}]
+            children: [nodeData]
         });
         //compute node positions and layout
         st.compute();
